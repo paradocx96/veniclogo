@@ -23,9 +23,11 @@
 
 <body>
     <script src="js/three.js"></script>
+    <script type="module" src="js/OrbitControls.js"></script>
     <script type="module" src="js/GLTFLoader.js"></script>
 
     <script type="module">
+        import { OrbitControls } from "./js/OrbitControls.js";
         import { GLTFLoader } from "./js/GLTFLoader.js";
 
         var scene = new THREE.Scene();
@@ -52,11 +54,17 @@
         scene.add(light);
 
         // Setting the Camera Position
-        camera.position.set(0, 10, 40);
+        camera.position.set(0, 10, 50);
+
+        // Setting the 360 Degrees View
+        var controls = new OrbitControls(camera, renderer.domElement);
+        controls.update();
 
         // Rendering the Scene
         function animate() {
             requestAnimationFrame(animate);
+            controls.update();
+            obj.rotation.y -= 0.01;
             renderer.render(scene, camera);
         };
 
