@@ -41,7 +41,7 @@
         var loader = new GLTFLoader();
         var obj;
 
-        loader.load("models/venic.gltf", function (gltf) {
+        loader.load("models/venicv2.gltf", function (gltf) {
             obj = gltf.scene;
             scene.add(gltf.scene);
         });
@@ -54,7 +54,7 @@
         scene.add(light);
 
         // Setting the Camera Position
-        camera.position.set(0, 10, 35);
+        camera.position.set(0, 100, 200);
 
         // Setting the 360 Degrees View
         var controls = new OrbitControls(camera, renderer.domElement);
